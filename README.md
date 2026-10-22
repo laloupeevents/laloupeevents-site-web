@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# La Loupe — site vitrine
 
-## Getting Started
+Site vitrine de **La Loupe**, experte en protocole étatique et événementiel (Dakar, Sénégal).
 
-First, run the development server:
+- Next.js 16 (App Router, Turbopack), React 19, TypeScript
+- Tailwind CSS v4 — charte : vert `#043927`, crème `#F8ECC4`, typographie Metropolis (auto-hébergée, licence OFL)
+- Animations : `motion` (Framer Motion) et `lenis` (défilement doux)
+
+## Démarrer
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build && npm start   # version de production
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Avant la mise en ligne, définir l'adresse publique du site (utilisée pour les aperçus de partage) :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .env.example .env.local   # puis renseigner NEXT_PUBLIC_SITE_URL
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Où modifier quoi
 
-## Learn More
+| Besoin | Fichier |
+|---|---|
+| Textes, coordonnées, modules de formation, chiffres | `src/lib/content.ts` |
+| Photos | `src/assets/images/` + `src/lib/images.ts` (sources dans `IMAGES.md`) |
+| Logos | `src/assets/brand/` (fichiers officiels fournis) |
+| Couleurs et polices | `src/app/globals.css` (`@theme`) et `src/app/layout.tsx` |
+| Titre, description SEO | `src/app/layout.tsx` (`metadata`) |
+| Icône et image de partage | `src/app/icon.png`, `apple-icon.png`, `opengraph-image.jpg` |
 
-To learn more about Next.js, take a look at the following resources:
+## Sections
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Accueil (effet loupe) · La Maison · Expertises · Sommets & Conférences · Méthode · Académie du Protocole
+(7 modules) · Chiffres · Galerie · Pourquoi nous choisir · Mot de la fondatrice · Contact.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Formulaire de contact
 
-## Deploy on Vercel
+Le formulaire ne dépend d'aucun serveur : il ouvre la messagerie du visiteur avec la demande pré-remplie
+(vers `laloupeevents@gmail.com`), ou WhatsApp. Un envoi direct (service d'e-mail) pourra être branché plus tard.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Accessibilité et performance
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Les animations respectent le réglage « réduire les animations » du système.
+- L'intro n'est jouée qu'une fois par session.
+- Le curseur personnalisé et la loupe interactive ne s'activent qu'à la souris ; sur mobile, la loupe se déplace seule.
+- Page entièrement statique, images optimisées par `next/image`.
