@@ -14,11 +14,23 @@ npm run dev      # http://localhost:3000
 npm run build && npm start   # version de production
 ```
 
-Avant la mise en ligne, définir l'adresse publique du site (utilisée pour les aperçus de partage) :
+L'adresse publique du site (aperçus de partage) est définie dans `.env.production`.
+
+## Mise en ligne (Cloudflare Workers)
+
+Le site est hébergé sur Cloudflare Workers via l'adaptateur [OpenNext](https://opennext.js.org/cloudflare) :
+**https://laloupe-site.laloupeevents.workers.dev**
 
 ```bash
-cp .env.example .env.local   # puis renseigner NEXT_PUBLIC_SITE_URL
+# Le jeton La Loupe est stocké hors du projet ; le charger écrase le jeton Cloudflare par défaut du shell.
+source ~/.cloudflare/laloupe.env
+npm run deploy     # build OpenNext + déploiement
+npm run preview    # tester localement dans l'environnement Workers
 ```
+
+- Configuration : `wrangler.jsonc` (Worker `laloupe-site`) et `open-next.config.ts`.
+- Images optimisées par Cloudflare Images (binding `IMAGES`, offre gratuite : 5 000 transformations/mois).
+- Adresse publique : `.env.production` (à mettre à jour le jour où un nom de domaine est branché).
 
 ## Où modifier quoi
 

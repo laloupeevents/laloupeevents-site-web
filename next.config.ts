@@ -15,3 +15,7 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+// Rend les bindings Cloudflare disponibles pendant `next dev`.
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+initOpenNextCloudflareForDev();
