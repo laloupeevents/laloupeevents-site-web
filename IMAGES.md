@@ -11,7 +11,7 @@
 | academie-salle-2.jpg | Galerie (Académie du Protocole) | IMG_0780.png |
 | protocole-cortege.jpg | Module Visites d'État | IMG_0793.png |
 | protocole-drapeaux.jpg | Expertise Stratégie, galerie | IMG_0794.jpeg |
-| protocole-securite.jpg | Module Gestion de crise, galerie | IMG_0795.png |
+| protocole-securite.jpg | Module Protocole & sécurité, galerie | IMG_0795.png |
 | protocole-accueil-vip.jpg | Sommets — Coordination VIP, galerie | IMG_0796.jpeg |
 
 ## Photos Unsplash
@@ -36,6 +36,7 @@ garder le même nom de fichier (ou mettre à jour `src/lib/images.ts`).
 | reception-table.jpg | Galerie | https://unsplash.com/photos/vrYwE6ZPV-o |
 | soiree-gala.jpg | Galerie | https://unsplash.com/photos/vFPJ6SNfZ3o |
 | salle-de-bal.jpg | Fond de la citation | https://unsplash.com/photos/n0Qne2MZWZM |
+| protocole-social.jpg | Module Protocole social | https://unsplash.com/photos/BC6s0iEa_CQ |
 
 ## Photos Pexels
 
@@ -43,6 +44,7 @@ garder le même nom de fichier (ou mettre à jour `src/lib/images.ts`).
 
 | Fichier | Utilisation | Source |
 |---|---|---|
+| equipe-protocole.jpg | Module Gestion de crise et gestion d'équipe | https://www.pexels.com/photo/group-of-people-wearing-corporate-attire-and-badge-smiling-8761682/ |
 | support-delegation.jpg | Sommets — Support technique | https://www.pexels.com/photo/close-up-photo-of-bearded-man-6949493/ |
 
 ## Photos Wikimedia Commons

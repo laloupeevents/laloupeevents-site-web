@@ -23,8 +23,12 @@ import receptionTable from "@/assets/images/reception-table.jpg";
 import dakarAeroport from "@/assets/images/dakar-aeroport.jpg";
 import soireeGala from "@/assets/images/soiree-gala.jpg";
 import conferenceIntervenante from "@/assets/images/conference-intervenante.jpg";
+import protocoleSocial from "@/assets/images/protocole-social.jpg";
+import equipeProtocole from "@/assets/images/equipe-protocole.jpg";
 
 export const images = {
+  protocoleSocial,
+  equipeProtocole,
   receptionToast,
   receptionTable,
   dakarAeroport,

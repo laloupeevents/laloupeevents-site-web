@@ -44,7 +44,7 @@ export function ModulesList() {
               <span className="text-sm font-semibold text-or">{String(i + 1).padStart(2, "0")}</span>
               <div>
                 <h4
-                  className={`text-[clamp(1.5rem,3.2vw,2.9rem)] leading-tight font-bold tracking-tight transition-transform duration-700 ease-luxe ${
+                  className={`text-[clamp(1.35rem,2.5vw,2.3rem)] leading-tight font-bold tracking-tight transition-transform duration-700 ease-luxe ${
                     hovered === i ? "md:translate-x-4" : ""
                   }`}
                 >

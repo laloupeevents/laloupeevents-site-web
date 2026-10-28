@@ -118,50 +118,83 @@ export type Module = {
   text: string;
   image: StaticImageData;
   alt: string;
+  /** Durée et tarif par personne (FCFA) — grille tarifaire validée par La Loupe. */
+  duree: string;
+  tarif: string;
 };
 
 export const modules: Module[] = [
   {
-    title: "Préséances & Étiquette",
-    text: "Maîtrise de l'ordre hiérarchique officiel.",
+    title: "Préséance et étiquette, règles et usages protocolaires",
+    text: "Maîtrise de l'ordre hiérarchique officiel et des usages protocolaires.",
     image: images.academieSalle,
     alt: "Master class de protocole étatique dans une salle pavoisée de drapeaux",
+    duree: "2 jours",
+    tarif: "75 000 – 125 000",
   },
   {
-    title: "Art de la table",
-    text: "Protocole des déjeuners et dîners officiels.",
+    title: "Art de la table et décoration",
+    text: "Protocole des déjeuners et dîners officiels, dressage et décoration des tables.",
     image: images.artDeLaTable,
     alt: "Verres alignés sur une table dressée",
+    duree: "1 jour (repas pratique inclus)",
+    tarif: "60 000 – 100 000",
   },
   {
-    title: "Diversité culturelle",
-    text: "Adaptation du protocole aux contextes internationaux.",
+    title: "Diversité culturelle et relations diplomatiques",
+    text: "Adaptation du protocole aux contextes internationaux et aux usages diplomatiques.",
     image: images.drapeauxCiel,
     alt: "Drapeaux de plusieurs nations dans le ciel",
+    duree: "2 jours",
+    tarif: "75 000 – 125 000",
   },
   {
-    title: "Correspondance",
-    text: "Rédaction de notes et invitations diplomatiques.",
+    title: "Correspondance et relations extérieures",
+    text: "Rédaction de notes, courriers et invitations diplomatiques.",
     image: images.correspondance,
     alt: "Machine à écrire avec une feuille portant le mot diplomatie",
+    duree: "1 à 2 jours",
+    tarif: "50 000 – 90 000",
   },
   {
-    title: "Gestion de crise",
-    text: "Réactions face aux incidents protocolaires.",
-    image: images.protocoleSecurite,
-    alt: "Agente du protocole en communication devant des véhicules officiels",
+    title: "Gestion de crise et gestion d'équipe",
+    text: "Réactions face aux incidents protocolaires et coordination des équipes.",
+    image: images.equipeProtocole,
+    alt: "Équipe en tenue officielle, badges au cou, prête pour un événement",
+    duree: "2 jours",
+    tarif: "90 000 – 150 000",
   },
   {
-    title: "Image & Média",
-    text: "Posture et prise de parole en milieu officiel.",
+    title: "Image, média et conseil en image",
+    text: "Posture, prise de parole en milieu officiel et conseil en image.",
     image: images.academieIntervention,
     alt: "Formatrice prenant la parole micro en main lors d'une master class",
+    duree: "2 jours",
+    tarif: "80 000 – 140 000",
   },
   {
     title: "Visites d'État",
     text: "Organisation des accueils à l'aéroport et cortèges.",
     image: images.protocoleCortege,
     alt: "Agente du protocole accueillant une délégation près d'un cortège officiel",
+    duree: "2 à 3 jours",
+    tarif: "100 000 – 175 000",
+  },
+  {
+    title: "Protocole & sécurité",
+    text: "Coordination du protocole avec les dispositifs de sécurité des personnalités.",
+    image: images.protocoleSecurite,
+    alt: "Agente du protocole en communication devant des véhicules officiels",
+    duree: "2 jours",
+    tarif: "90 000 – 150 000",
+  },
+  {
+    title: "Protocole social",
+    text: "Organisation et protocole des mariages et cérémonies.",
+    image: images.protocoleSocial,
+    alt: "Entrée des mariés entre deux haies d'invités lors d'une cérémonie de mariage",
+    duree: "1 jour",
+    tarif: "40 000 – 75 000",
   },
 ];
 

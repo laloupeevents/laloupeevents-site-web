@@ -2,7 +2,9 @@ import Image from "next/image";
 import { Button, Eyebrow } from "@/components/ui/elements";
 import { ParallaxImage, Reveal, SplitWords } from "@/components/ui/motion";
 import { ModulesList } from "@/components/sections/ModulesList";
+import { GrilleTarifaire } from "@/components/sections/GrilleTarifaire";
 import { images } from "@/lib/images";
+import { modules } from "@/lib/content";
 import logoCreme from "@/assets/brand/logo-creme.png";
 
 const BADGE = "Formation certifiante • Académie du Protocole • ";
@@ -83,7 +85,7 @@ export function Academie() {
               <SplitWords text="Programmes de formation" />
             </h3>
             <Reveal delay={0.1}>
-              <p className="text-sm font-semibold tracking-[0.25em] text-creme/60 uppercase">7 modules</p>
+              <p className="text-sm font-semibold tracking-[0.25em] text-creme/60 uppercase">{modules.length} modules</p>
             </Reveal>
           </div>
           <ModulesList />
@@ -98,6 +100,8 @@ export function Academie() {
           </div>
           <Button href="#contact">Demander le programme</Button>
         </Reveal>
+
+        <GrilleTarifaire />
       </div>
     </section>
   );
