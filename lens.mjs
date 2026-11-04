@@ -1,0 +1,12 @@
+import puppeteer from "puppeteer-core";
+const b = await puppeteer.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", headless: true });
+const w = (ms) => new Promise((r) => setTimeout(r, ms));
+const d = await b.newPage(); await d.setViewport({ width: 1440, height: 900 });
+await d.goto("http://localhost:3000", { waitUntil: "networkidle0", timeout: 90000 }); await w(5000);
+await d.screenshot({ path: "out/lens-repos.png" });
+await d.mouse.move(700, 250, { steps: 15 }); await w(1500);
+await d.screenshot({ path: "out/lens-souris.png" });
+const m = await b.newPage(); await m.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
+await m.goto("http://localhost:3000", { waitUntil: "networkidle0", timeout: 90000 }); await w(5000);
+await m.screenshot({ path: "out/lens-mobile.png" });
+await b.close();

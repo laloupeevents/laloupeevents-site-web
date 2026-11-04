@@ -36,7 +36,7 @@ export function Hero() {
   const my = useMotionValue(0);
   const x = useSpring(mx, { stiffness: 160, damping: 22, mass: 0.6 });
   const y = useSpring(my, { stiffness: 160, damping: 22, mass: 0.6 });
-  const radius = finePointer ? 115 : 62;
+  const radius = finePointer ? 115 : 50;
   const radiusMv = useMotionValue(radius);
   const heightMv = useMotionValue(0);
 
@@ -62,7 +62,7 @@ export function Hero() {
   useEffect(() => radiusMv.set(radius), [radius, radiusMv]);
 
   // Position de repos : sur le lustre de droite (desktop) ou le lustre central (mobile).
-  const home = () => ({ x: box.w * (box.w < 768 ? 0.62 : 0.84), y: box.h * (box.w < 768 ? 0.17 : 0.29) });
+  const home = () => ({ x: box.w * (box.w < 768 ? 0.62 : 0.84), y: box.h * (box.w < 768 ? 0.12 : 0.29) });
 
   useEffect(() => {
     if (!box.w) return;
@@ -80,7 +80,7 @@ export function Hero() {
       repeat: Infinity,
       ease: "easeInOut",
     });
-    const ay = animate(my, [start.y, box.h * 0.13, box.h * 0.16, start.y], {
+    const ay = animate(my, [start.y, box.h * 0.1, box.h * 0.13, start.y], {
       duration: 16,
       repeat: Infinity,
       ease: "easeInOut",
@@ -144,22 +144,12 @@ export function Hero() {
           animate={ready ? { opacity: 1, scale: 1 } : undefined}
           transition={{ duration: 1.2, ease: EASE, delay: 0.9 }}
         >
-          <div className="relative -translate-x-1/2 -translate-y-1/2" style={{ width: radius * 2, height: radius * 2 }}>
-            {/* Manche, dans l'axe du logo */}
+          {/* Point d'ancrage = centre du verre ; le contour officiel est posé autour. */}
+          <div className="relative size-0">
             <div
-              className="absolute top-1/2 left-1/2 w-0"
-              style={{ transform: `rotate(-32deg) translateY(${radius + 7}px)` }}
+              className="absolute overflow-hidden rounded-full shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)]"
+              style={{ left: -radius, top: -radius, width: radius * 2, height: radius * 2 }}
             >
-              <div
-                className="-translate-x-1/2 border-x border-creme/80"
-                style={{ width: radius * 0.16, height: radius * 0.34 }}
-              />
-              <div
-                className="-translate-x-1/2 rounded-t-[3px] rounded-b-full border-[1.5px] border-creme/85 bg-vert-950/35 backdrop-blur-sm"
-                style={{ width: radius * 0.3, height: radius * 0.95 }}
-              />
-            </div>
-            <div className="absolute inset-0 overflow-hidden rounded-full shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)]">
               <motion.div
                 className="absolute"
                 style={{
@@ -173,8 +163,7 @@ export function Hero() {
               </motion.div>
               <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_35%_30%,rgba(255,255,255,0.18),transparent_55%)]" />
             </div>
-            <div className="absolute inset-0 rounded-full border-[3px] border-creme/90" />
-            <div className="absolute -inset-[7px] rounded-full border border-creme/60" />
+            <LoupeContour radius={radius} />
           </div>
         </motion.div>
       )}
@@ -250,5 +239,33 @@ export function Hero() {
         </motion.div>
       </motion.div>
     </section>
+  );
+}
+
+// Contour officiel de la loupe (src/assets/brand/loupe-contour.svg), repère SVG 308.94 × 489.67.
+// Le cercle intérieur du verre y est centré en (138.9, 140.6) avec un rayon de 115.2.
+const CONTOUR = { w: 308.94, h: 489.67, cx: 138.9, cy: 140.6, r: 115.2 };
+const MANCHE = "M306.43,450.16c-2.59-8.29-6.45-16.09-9.65-24.12-13.04-30.76-26.13-61.51-38.71-92.47-18.99,8.49-38.68,15.38-57.31,24.66,15.9,38.97,31.72,77.98,48.43,116.63,3.77,8.57,13.29,13.48,22.42,13.31,11.09-.25,22.04-5.49,29.06-14.1,5.14-6.64,8.57-15.6,5.76-23.91Z";
+const MONTURE = "M267.91,91.06c-.47-1.33-.99-2.64-1.52-3.94-2.58-6.44-5.64-12.67-9.13-18.65-11.02-18.78-26.38-34.99-45.22-46.31C181.13,2.82,142.23-3.4,106.82,5.45c-21.53,5.31-41.68,15.92-58.12,30.81C19.51,61.9,2.22,100.16,1.56,138.95c-.49,15.26,1.84,30.44,6.55,44.88.44,1.4.91,2.78,1.42,4.16.19.51.37,1.03.57,1.53,5.85,15.6,14.49,30.21,25.32,42.87.51.59.99,1.16,1.52,1.74,15.73,17.81,35.88,31.64,58.74,38.85,25.81,8.32,53.84,8.57,79.97,1.63,9.4,19.93,17.47,40.48,27.07,60.33,12.23-4.09,23.96-9.48,35.9-14.34-8.24-21.29-17.77-42.07-26.33-63.22,25.13-16.9,45.18-41.76,55.71-70.18.34-.93.67-1.87.99-2.81,2.44-7.04,4.3-14.3,5.49-21.7,4.41-23.96,1.82-48.87-6.59-71.63ZM211.61,230.28c-14.81,12.9-33.29,21.33-52.63,24.56-31.87,5.29-65.57-4.04-91.06-23.65-12.97-9.89-23.5-22.76-30.98-37.21-.52-1.01-1.03-2.02-1.52-3.05-.24-.47-.45-.93-.67-1.4-.24-.51-.47-1.03-.69-1.53-2-4.48-3.72-9.1-5.14-13.8-1.52-5-2.68-10.11-3.49-15.26-7.7-46.21,15.97-95.86,56.94-118.7,24.93-14.42,55.46-19.2,83.47-12.1,27.21,6.69,52.26,23.18,67.67,46.8.77,1.15,1.55,2.29,2.27,3.47,11.61,18.24,18.24,39.76,17.96,61.47-.34,34.25-15.92,68.26-42.15,90.4Z";
+
+/** Monture et manche de la loupe, mis à l'échelle pour que le verre ait le rayon voulu. */
+function LoupeContour({ radius }: { radius: number }) {
+  const scale = radius / CONTOUR.r;
+  return (
+    <svg
+      viewBox={`0 0 ${CONTOUR.w} ${CONTOUR.h}`}
+      className="absolute drop-shadow-[0_18px_30px_rgba(0,0,0,0.45)]"
+      style={{
+        left: -CONTOUR.cx * scale,
+        top: -CONTOUR.cy * scale,
+        width: CONTOUR.w * scale,
+        height: CONTOUR.h * scale,
+      }}
+    >
+      <g fill="rgba(2,29,20,0.35)" stroke="#f8ecc4" strokeWidth={3} strokeMiterlimit={10}>
+        <path d={MANCHE} />
+        <path d={MONTURE} fillRule="evenodd" />
+      </g>
+    </svg>
   );
 }
