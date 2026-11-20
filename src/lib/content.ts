@@ -3,9 +3,9 @@ import { images } from "./images";
 
 export const contact = {
   email: "laloupeevents@gmail.com",
-  phoneDisplay: "+221 76 561 55 17",
-  phoneHref: "tel:+221765615517",
-  whatsapp: "221765615517",
+  phoneDisplay: "+221 76 660 00 26",
+  phoneHref: "tel:+221766600026",
+  whatsapp: "221766600026",
   city: "Dakar, Sénégal",
 };
 
