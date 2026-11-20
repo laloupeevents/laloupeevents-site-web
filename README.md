@@ -19,7 +19,7 @@ L'adresse publique du site (aperçus de partage) est définie dans `.env.product
 ## Mise en ligne (Cloudflare Workers)
 
 Le site est hébergé sur Cloudflare Workers via l'adaptateur [OpenNext](https://opennext.js.org/cloudflare) :
-**https://laloupe-site.laloupeevents.workers.dev**
+**https://laloupe-events.com** (aussi servi sur `www.laloupe-events.com` et `laloupe-site.laloupeevents.workers.dev`).
 
 ```bash
 # Le jeton La Loupe est stocké hors du projet ; le charger écrase le jeton Cloudflare par défaut du shell.
@@ -30,7 +30,7 @@ npm run preview    # tester localement dans l'environnement Workers
 
 - Configuration : `wrangler.jsonc` (Worker `laloupe-site`) et `open-next.config.ts`.
 - Images optimisées par Cloudflare Images (binding `IMAGES`, offre gratuite : 5 000 transformations/mois).
-- Adresse publique : `.env.production` (à mettre à jour le jour où un nom de domaine est branché).
+- Adresse publique de référence : `.env.production` (`https://laloupe-events.com`).
 
 ## Où modifier quoi
 

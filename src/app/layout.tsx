@@ -41,6 +41,8 @@ export const metadata: Metadata = {
     template: "%s — La Loupe",
   },
   description,
+  // Adresse de référence : la version sans « www » (évite le contenu en double pour Google).
+  alternates: { canonical: "/" },
   keywords: [
     "protocole d'État",
     "protocole étatique",
